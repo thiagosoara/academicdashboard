@@ -12,6 +12,7 @@
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
     <script type="text/javascript" src="data/ifpe.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
     
     <!-- Chart code -->
     <script>
@@ -20,16 +21,22 @@
     
     ifpe = data_ifpe;
     
+    mapa_ifpe = getAllCourses(ifpe);
+    
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
 
-    
-    var data = {
-      "IFPE": { "Licenciatura em Matemática": 400, "Tecnologia em Gestão Ambiental": 112, "Licenciatura em Geografia": 312  },
-      "UPE": { "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254 },
-      "UFRPE": { "Licenciatura em Física": 80, "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254 }
-    }
+    var data = new Object();
+    data.UPE = { "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254, "Licenciatura em Física": 100 };
+    data.UFRPE = { "Licenciatura em Física": 80, "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254};
+    data.IFPE = mapa_ifpe;
+    alert(JSON.stringify(data));
+    // var data = {
+    //   "UPE": { "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254, "Licenciatura em Física": 100 },
+    //   "UFRPE": { "Licenciatura em Física": 80, "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254},
+    //   "IFPE":  JSON.stringify(mapa_ifpe) 
+    // }
     
     function processData(data) {
       var treeData = [];

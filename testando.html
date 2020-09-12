@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+/* Create chart */
+var chart = am4core.create("chartdiv", am4charts.TreeMap);
+chart.data = [{
+  "name": "First",
+  "value": 190
+}, {
+  "name": "Second",
+  "value": 289
+}, {
+  "name": "Third",
+  "value": 635
+}, {
+  "name": "Fourth",
+  "value": 732
+}, {
+  "name": "Fifth",
+  "value": 835
+}];
+
+/* Set color step */
+chart.colors.step = 2;
+
+/* Define data fields */
+chart.dataFields.value = "value";
+chart.dataFields.name = "name";
+    </script>
+</head>
+<body>
+    <div id="chartdiv"></div>
+</body>
+</html>

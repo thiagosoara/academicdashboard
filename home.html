@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Styles -->
 <style>
     #chartdiv {
@@ -31,7 +32,6 @@
     data.UPE = { "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254, "Licenciatura em Física": 100 };
     data.UFRPE = { "Licenciatura em Física": 80, "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254};
     data.IFPE = mapa_ifpe;
-    alert(JSON.stringify(data));
     // var data = {
     //   "UPE": { "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254, "Licenciatura em Física": 100 },
     //   "UFRPE": { "Licenciatura em Física": 80, "Licenciatura em Computação": 150, "Licenciatura em Matemática": 254},
@@ -123,7 +123,15 @@
     bullet1.locationX = 0.5;
     bullet1.locationY = 0.5;
     bullet1.label.text = "{name}";
-    bullet1.label.fill = am4core.color("#ffffff");
+    bullet1.label.fill = am4core.color("#6771DC");
+    bullet1.clickable = true;
+    bullet1.hoverable = true;
+    bullet1.events.on("hit", function(ev) {
+      window.location = "disciplinas.html?course="+ev.target.label.currentText;
+      console.log("clicked on ", ev.target);
+    }, this);
+
+    
     
     // level2 series template
     var level2SeriesTemplate = chart.seriesTemplates.create("2");
@@ -133,7 +141,9 @@
     bullet2.locationX = 0.5;
     bullet2.locationY = 0.5;
     bullet2.label.text = "{name}";
-    bullet2.label.fill = am4core.color("#ffffff");
+    bullet2.label.fill = am4core.color("#454545");
+    bullet2.label.href = "disciplinas.html";
+  
     
     chart.data = processData(data);
     
